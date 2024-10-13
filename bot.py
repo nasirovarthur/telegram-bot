@@ -1,3 +1,4 @@
+import os
 import asyncio
 from telegram import Update, ChatPermissions
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
@@ -5,8 +6,12 @@ from functools import wraps
 import random
 import time
 
-# Ваш токен
-TOKEN = "7929267382:AAEsymHC46FQXB17zY5_w72mqATkxuwcoOI"
+# Получение токена из переменной окружения
+TOKEN = os.getenv("TOKEN")
+
+# Проверка, если токен не найден
+if not TOKEN:
+    raise ValueError("Токен не найден. Убедитесь, что он указан в файле .env")
 
 # Для отслеживания частоты отправки команд
 user_command_tracker = {}
