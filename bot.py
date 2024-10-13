@@ -13,6 +13,9 @@ TOKEN = os.getenv("TOKEN")
 if not TOKEN:
     raise ValueError("Токен не найден. Убедитесь, что он указан в файле .env")
 
+# Отладочный вывод для проверки токена
+print(f"TOKEN: {TOKEN}")
+
 # Для отслеживания частоты отправки команд
 user_command_tracker = {}
 
